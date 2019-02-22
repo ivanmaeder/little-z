@@ -31,6 +31,12 @@ past_top_right_edge = """10 2
 10 10 5
 9 9 8"""
 
+too_many_pizzerias = """5 1
+3 3 2
+1 2 3
+4 5 6
+7 8 9"""
+
 def run_test(data):
     process = Popen(["./pizza.py"], stdin=PIPE, stdout=PIPE)
     stdout = process.communicate(input=data.encode())[0]
@@ -51,3 +57,6 @@ def test_past_bottom_left_edge():
 
 def test_past_top_right_edge():
     assert run_test(past_top_right_edge) == 2
+
+def test_too_many_pizzerias():
+    assert run_test(too_many_pizzerias) == 1

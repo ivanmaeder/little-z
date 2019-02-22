@@ -29,13 +29,12 @@ def print_map(city):
 def main():
     highest_density = 0
 
-    for line in fileinput.input():
+    for line_number, line in enumerate(fileinput.input()):
         if fileinput.isfirstline():
             [city_dimension, pizzeria_count] = parse_first_line(line)
             city = create_city(city_dimension)
             continue
 
-        #use pizzeria_count ??
         [x, y, k] = parse_pizzeria_line(line)
         area = pizzeria_area(x, y, k)
 
@@ -48,6 +47,9 @@ def main():
 
                 if (city[area_x][area_y] > highest_density):
                     highest_density = city[area_x][area_y]
+
+        if (line_number >= pizzeria_count):
+            break
 
     print(highest_density)
 
