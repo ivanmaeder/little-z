@@ -2,7 +2,11 @@
 
 My experience with Python is limited to writing one [script](https://github.com/ivanmaeder/vimv) a long long time ago, and spending a [couple of afternoons](https://github.com/ivanmaeder/NLP) looking at the Natural Language Processing with Python book.
 
-Still, I'm going with Python because I'm bound to learn a few things. I'm using:
+Still, I'm going with Python because I'm bound to learn a few things.
+
+Please excuse the blunders.
+
+I'm using:
 
 - Python 3.7.2
 - pytest-4.3.0
