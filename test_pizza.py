@@ -37,11 +37,25 @@ too_many_pizzerias = """5 1
 4 5 6
 7 8 9"""
 
+huge_pizzeria = """5 1
+3 3 1000
+"""
+
+huge_city = """1000 5
+10 5 100
+34 67 55
+448 765 31
+806 765 300
+313 702 140"""
+
 def run_test(data):
     process = Popen(["./pizza.py"], stdin=PIPE, stdout=PIPE)
     stdout = process.communicate(input=data.encode())[0]
 
     return int(stdout.decode())
+
+def empty_city():
+    assert run_test("") == 0
 
 def test_given_test_data():
     assert run_test(given_test_data) == 2
@@ -60,3 +74,6 @@ def test_past_top_right_edge():
 
 def test_too_many_pizzerias():
     assert run_test(too_many_pizzerias) == 1
+
+def test_huge_pizzeria():
+    assert run_test(huge_pizzeria) == 1
