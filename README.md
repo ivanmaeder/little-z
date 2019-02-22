@@ -27,17 +27,17 @@ I cannot think of a simpler representation for the city data than a grid. A grid
 
 Assuming that's correct, the optimisations must be in:
 
-- Not loading the data and processing it in separate steps
+- Loading the data and processing it at the same time (not in separate steps)
 - Keeping track of the value of the densest coordinate's value, instead of looking for it after processing all the data
 - Improving the data processing efficiency through memoization or hardcoding
 
 ### Memoization or hardcoding
 
-I think a gain might be in not having to calculate the "circumference" of coordinates every time, and so I could run those calculations once for every different value of K, and/or hardcode the circumference coordinates for a set of K.
+I think a gain might be had in not having to calculate the delivery area of every city, and so I could run those calculations once for every different value of K, and/or hardcode the circumference coordinates for a set of K.
 
-The circumference coordinates could be saved as values relative to any centre. E.g., (-2, 0), etc.
+The circumference coordinates could be saved as values relative to any centre—i.e., for a pizzeria at (0, 0).
 
-With this, the calculation is reduced either completely (assuming **all** the circumference coordinates are hardcoded), or at least reduced.
+This way, this calculation is reduced either completely (assuming **all** the circumference coordinates are hardcoded), or at least reduced.
 
 In all cases some arithmetic will still be needed.
 
@@ -45,10 +45,8 @@ Performance tests would help figure out whether this is worth it, but that doesn
 
 ### Further possible optimisations
 
-- Caching "duplicate" pizzerias—unlikely worth it, plus still O(n)
+- Caching the area of "duplicate" pizzerias—unlikely worth it, plus still O(n)
 - Sorting pizzerias prior to processing—no longer O(n), additional complexity, dubious benefits
-- Resizing the city grid to reduce memory usage—significantly more complex, more processing… may reduce performance and even then the memory usage may not be reduced much at all
+- Resizing the city grid to reduce memory usage—significantly more complex, more processing… may reduce performance and even then the memory usage may not be reduced at all
 
-
-
-
+I don't think we do better than O(n).
