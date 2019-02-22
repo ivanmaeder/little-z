@@ -48,5 +48,6 @@ Performance tests would help figure out whether this is worth it, but that doesn
 - Caching the area of "duplicate" pizzerias—unlikely worth it, plus still O(n)
 - Sorting pizzerias prior to processing—no longer O(n), additional complexity, dubious benefits
 - Resizing the city grid to reduce memory usage—significantly more complex, more processing… may reduce performance and even then the memory usage may not be reduced at all
+- Delivery areas area currently calculated using list comprehension. Possibly this is not the most efficient solution—it would be worth comparing it to a more "manual" solution
 
 I don't think we do better than O(n).
