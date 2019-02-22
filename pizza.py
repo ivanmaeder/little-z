@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import fileinput
 
@@ -22,6 +22,10 @@ def pizzeria_area(x, y, k):
         if (abs(x - potential_x) + abs(y - potential_y) <= k)
     ]
 
+def print_map(city):
+    for line in city[::-1]:
+        print(line)
+
 def main():
     for line in fileinput.input():
         if fileinput.isfirstline():
@@ -30,12 +34,16 @@ def main():
             continue
 
         #use pizzeria_count ??
-
         [x, y, k] = parse_pizzeria_line(line)
+        area = pizzeria_area(x, y, k)
 
-        #calculate pizzeria area
-        #update city based on area
-        #update the highest density number
+        for coordinate in area:
+            area_x = coordinate[0] - 1
+            area_y = coordinate[1] - 1
+
+            if (area_x >= 0 and area_x < city_dimension and area_y >= 0 and area_y < city_dimension):
+                city[area_x][area_y] += 1
+
 
     print(1)
 
