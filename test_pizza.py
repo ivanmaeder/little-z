@@ -37,11 +37,11 @@ too_many_pizzerias = """5 1
 4 5 6
 7 8 9"""
 
-huge_pizzeria = """5 1
+large_pizzeria = """5 1
 3 3 1000
 """
 
-huge_city = """1000 5
+large_city = """1000 5
 10 5 100
 34 67 55
 448 765 31
@@ -75,5 +75,8 @@ def test_past_top_right_edge():
 def test_too_many_pizzerias():
     assert run_test(too_many_pizzerias) == 1
 
-def test_huge_pizzeria():
-    assert run_test(huge_pizzeria) == 1
+def test_large_pizzeria():
+    assert run_test(large_pizzeria) == 1
+
+def test_large_city():
+    assert run_test(large_city) == 2

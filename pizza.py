@@ -30,7 +30,7 @@ def main():
     highest_density = 0
 
     for line_number, line in enumerate(fileinput.input()):
-        if fileinput.isfirstline():
+        if (fileinput.isfirstline()):
             [city_dimension, pizzeria_count] = parse_first_line(line)
             city = create_city(city_dimension)
             continue
