@@ -1,4 +1,4 @@
-from pizza import pizzeria_area
+from main import pizzeria_area
 
 def test_size_0():
     expected = [(0, 0)]

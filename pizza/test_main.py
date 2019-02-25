@@ -49,7 +49,7 @@ large_city = """1000 5
 313 702 140"""
 
 def run_test(data):
-    process = Popen(["./pizza.py"], stdin=PIPE, stdout=PIPE)
+    process = Popen(["./main.py"], stdin=PIPE, stdout=PIPE)
     stdout = process.communicate(input=data.encode())[0]
 
     return int(stdout.decode())
