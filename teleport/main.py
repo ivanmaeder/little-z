@@ -28,10 +28,11 @@ def distance(c1, c2):
     return round(math.sqrt((c1.x - c2.x) ** 2 + (c1.y - c2.y) ** 2 + (c1.z - c2.z) ** 2), 2)
 
 def add_to_graph(g, new_node):
-    existing_nodes = list(g.nodes())
+    g.add_node(new_node)
 
-    for node in existing_nodes:
-        g.add_edge(new_node, node, weight=distance(new_node, node))
+    for node in g.nodes:
+        if (node != new_node):
+            g.add_edge(new_node, node, weight=distance(new_node, node))
 
 #def print_graph(g):
 #    print(g.nodes())
