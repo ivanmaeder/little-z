@@ -4,6 +4,8 @@ given_test_data = """5 2
 3 3 2
 1 1 2"""
 
+empty_city = ""
+
 single_pizzeria = """10 1
 3 5 2"""
 
@@ -54,11 +56,14 @@ def run_test(data):
 
     return int(stdout.decode())
 
-def empty_city():
-    assert run_test("") == 0
-
 def test_given_test_data():
     assert run_test(given_test_data) == 2
+
+def test_empty_city():
+    assert run_test(empty_city) == 0
+
+def test_single_pizzeria():
+    assert run_test(single_pizzeria) == 1
 
 def test_uniform_distribution():
     assert run_test(uniform_distribution) == 1
