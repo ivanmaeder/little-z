@@ -27,6 +27,11 @@ def parse_coordinate(str):
 def distance(c1, c2):
     return round(math.sqrt((c1.x - c2.x) ** 2 + (c1.y - c2.y) ** 2 + (c1.z - c2.z) ** 2), 2)
 
+def print_graph(g):
+    print(g.nodes())
+    for edge in g.edges():
+        print("%s %s" % (edge, g.get_edge_data(edge[0], edge[1])))
+
 def add_to_graph(g, new_node):
     g.add_node(new_node)
 
@@ -34,11 +39,6 @@ def add_to_graph(g, new_node):
         if (node != new_node):
             g.add_edge(new_node, node, weight=distance(new_node, node))
 
-#def print_graph(g):
-#    print(g.nodes())
-#    for edge in g.edges():
-#        print("%s %s" % (edge, g.get_edge_data(edge[0], edge[1])))
-#
 def next(unvisited, priority_queue):
     weight = math.inf
     next_node = None
@@ -58,11 +58,8 @@ def find_optimal_path(g, origin, destination):
         priority_queue[node] = math.inf
 
     priority_queue[origin] = 0
-    #print("unvisited =\t", unvisited)
-    #print("priority_queue =", priority_queue)
     while (unvisited):
         node = next(unvisited, priority_queue)
-        #print("next =\t\t", node)
 
         if (node == destination):
             return priority_queue[node]
@@ -71,15 +68,11 @@ def find_optimal_path(g, origin, destination):
             if (neighbor not in unvisited):
                 continue
 
-            #print("neighbor =\t", neighbor)
             weight = g.get_edge_data(node, neighbor)["weight"]
             if (weight < priority_queue[neighbor]):
                 priority_queue[neighbor] = max(weight, priority_queue[node])
 
         unvisited.remove(node)
-        #print("unvisited =\t", unvisited)
-        #print("priority_queue =", priority_queue)
-        #print("---")
 
 def main():
     station_count = 0
